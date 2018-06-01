@@ -1,17 +1,18 @@
 [{
-  "name": "TOOLS",
+  "name": "HOME",
   "open": true,
+  "icon": "fas fa-home",
   "childs": [{
-      "name": "PacketGenerator",
-      "icon": "fas fa-cogs",
-      "router-link": ""
-    },
-    {
-      "name": "PacketGenerator",
-      "icon": "fas fa-cogs",
-      "router-link": ""
-    },
-    {
+      "name": "Home",
+      "icon": "fas fa-home",
+      "router-link": "Home"
+    }
+  ]
+}, {
+  "name": "TOOLS",
+  "open": false,
+  "icon": "fas fa-cogs",
+  "childs": [{
       "name": "PacketGenerator",
       "icon": "fas fa-cogs",
       "router-link": ""

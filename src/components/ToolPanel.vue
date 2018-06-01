@@ -9,12 +9,12 @@
          <div class="tools">
 
             <div v-for="tool in tools" :key="tool.name" class="main-tool transition" :class="{'tool-open': tool.open}">
-               <div class="main-name transition" @click="tool.open = ! tool.open"><a>{{tool.name}}</a> <span class="fas fa-angle-left"></span></div>
+               <div class="main-name" @click="tool.open = ! tool.open"><i class="icon" :class="tool.icon"></i><a class="transition">{{tool.name}}</a> <span class="fas fa-angle-left transition"></span></div>
 
-               <div v-for="t in tool.childs" :key="t.name" class="tool">
+               <router-link tag="div" v-for="t in tool.childs" :key="t.name" :to="t.router-link" class="tool">
                   <span class="icon" :class="t.icon"></span>
                   <a class="name">{{t.name}}</a>
-               </div>
+               </router-link>
             </div>
 
          </div>
@@ -78,27 +78,24 @@ export default {
       padding-top: 50px;
 
       .main-tool {
-        overflow: hidden;
-        max-height: 40px;
-
         .main-name {
-          cursor: pointer;
-          font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial,
-            sans-serif;
-          font-weight: 400;
           font-size: 14px;
           width: 100%;
           color: rgb(190, 190, 190);
           padding: 10px 0;
           background-color: var(--third-color);
 
-          a {
-            margin-left: 5px;
+          .icon {
+            position: relative;
+            left: 150px;
+            cursor: pointer;
           }
 
+          a {
+            display: none;
+          }
           span {
-            position: relative;
-            left: 10px;
+            display: none;
           }
         }
 
@@ -107,32 +104,7 @@ export default {
         }
 
         .tool {
-          padding: 15px 0;
-          cursor: pointer;
-
-          .icon {
-            font-size: 15px;
-            margin-left: 5px;
-          }
-
-          .name {
-            margin-left: 5px;
-            vertical-align: 10%;
-            font-family: "Dosis", "Source Sans Pro", "Helvetica Neue", Arial,
-              sans-serif;
-            font-weight: 200;
-            font-size: 14px;
-            color: rgb(202, 202, 202);
-          }
-        }
-      }
-
-      .tool-open {
-        max-height: 400px;
-        .main-name {
-          span {
-            transform: rotate(-90deg);
-          }
+          display: none;
         }
       }
     }
@@ -140,11 +112,6 @@ export default {
 
   .icon {
     color: #fff;
-  }
-
-  .transition {
-    transition: 0.3s;
-    -webkit-transition: 0.3s;
   }
 }
 
@@ -159,5 +126,75 @@ export default {
       left: 20px;
     }
   }
+
+  .tools {
+    .main-tool {
+      overflow: hidden;
+      max-height: 38px;
+
+      .main-name {
+        cursor: pointer;
+        font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial,
+          sans-serif;
+        font-weight: 400;
+        font-size: 14px;
+        width: 100%;
+        color: rgb(190, 190, 190);
+        padding: 10px 0;
+        background-color: var(--third-color);
+
+        .icon {
+          display: none;
+        }
+
+        a {
+          margin-left: 5px;
+          display: inline !important;
+        }
+
+        span {
+          display: inline-block !important;
+          position: relative;
+          left: 10px;
+        }
+      }
+
+      .tool {
+        display: block !important;
+        padding: 15px 0;
+        cursor: pointer;
+
+        .icon {
+          font-size: 15px;
+          margin-left: 5px;
+        }
+
+        .name {
+          text-decoration: none;
+          margin-left: 5px;
+          vertical-align: 10%;
+          font-family: "Dosis", "Source Sans Pro", "Helvetica Neue", Arial,
+            sans-serif;
+          font-weight: 200;
+          font-size: 14px;
+          color: rgb(202, 202, 202);
+        }
+      }
+    }
+
+    .tool-open {
+      max-height: 400px;
+      .main-name {
+        span {
+          transform: rotate(-90deg);
+        }
+      }
+    }
+  }
+}
+
+.transition {
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
 }
 </style>
