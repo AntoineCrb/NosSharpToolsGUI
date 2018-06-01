@@ -1,5 +1,5 @@
 [{
-  "name": "HOME",
+  "name": "INFO",
   "open": true,
   "icon": "fas fa-home",
   "childs": [{
@@ -15,7 +15,7 @@
   "childs": [{
       "name": "PacketGenerator",
       "icon": "fas fa-cogs",
-      "routerLink": "Home"
+      "routerLink": "PacketGenerator"
     }
   ]
 }]

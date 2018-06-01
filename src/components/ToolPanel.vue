@@ -11,9 +11,9 @@
             <div v-for="tool in tools" :key="tool.name" class="main-tool transition" :class="{'tool-open': tool.open}">
                <div class="main-name" @click="tool.open = ! tool.open"><i class="icon" :class="tool.icon"></i><a class="transition">{{tool.name}}</a> <span class="fas fa-angle-left transition"></span></div>
 
-               <router-link tag="div" v-for="t in tool.childs" :key="t.name" :to="{ name: t.routerLink}" class="tool">
-                  <span class="icon" :class="t.icon"></span>
-                  <a class="name">{{t.name}}</a>
+               <router-link tag="a" v-for="t in tool.childs" :key="t.name" :to="{ name: t.routerLink}" class="tool">
+                  <span class="icon transition" :class="t.icon"></span>
+                  <a class="name transition">{{t.name}}</a>
                </router-link>
             </div>
 
@@ -63,8 +63,6 @@ export default {
     left: -130px;
 
     .text {
-      font-family: "Dosis", "Source Sans Pro", "Helvetica Neue", Arial,
-        sans-serif;
       font-weight: 200;
       font-size: 20px;
       color: #fff;
@@ -134,9 +132,6 @@ export default {
 
       .main-name {
         cursor: pointer;
-        font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial,
-          sans-serif;
-        font-weight: 400;
         font-size: 14px;
         width: 100%;
         color: rgb(190, 190, 190);
@@ -163,6 +158,7 @@ export default {
         display: block !important;
         padding: 15px 0;
         cursor: pointer;
+        text-decoration: none;
 
         .icon {
           font-size: 15px;
@@ -170,14 +166,21 @@ export default {
         }
 
         .name {
-          text-decoration: none;
           margin-left: 5px;
           vertical-align: 10%;
-          font-family: "Dosis", "Source Sans Pro", "Helvetica Neue", Arial,
-            sans-serif;
           font-weight: 200;
           font-size: 14px;
           color: rgb(202, 202, 202);
+        }
+      }
+
+      .tool:hover {
+        .icon {
+          color: var(--fourth-color);
+        }
+
+        .name {
+          margin-left: 10px;
         }
       }
     }
