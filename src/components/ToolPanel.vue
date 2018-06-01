@@ -11,7 +11,7 @@
             <div v-for="tool in tools" :key="tool.name" class="main-tool transition" :class="{'tool-open': tool.open}">
                <div class="main-name" @click="tool.open = ! tool.open"><i class="icon" :class="tool.icon"></i><a class="transition">{{tool.name}}</a> <span class="fas fa-angle-left transition"></span></div>
 
-               <router-link tag="div" v-for="t in tool.childs" :key="t.name" :to="t.router-link" class="tool">
+               <router-link tag="div" v-for="t in tool.childs" :key="t.name" :to="{ name: t.routerLink}" class="tool">
                   <span class="icon" :class="t.icon"></span>
                   <a class="name">{{t.name}}</a>
                </router-link>

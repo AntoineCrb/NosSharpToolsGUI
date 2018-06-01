@@ -5,7 +5,7 @@
   "childs": [{
       "name": "Home",
       "icon": "fas fa-home",
-      "router-link": "Home"
+      "routerLink": "Home"
     }
   ]
 }, {
@@ -15,7 +15,7 @@
   "childs": [{
       "name": "PacketGenerator",
       "icon": "fas fa-cogs",
-      "router-link": ""
+      "routerLink": "Home"
     }
   ]
 }]
