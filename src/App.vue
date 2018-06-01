@@ -1,23 +1,29 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
+    <app-tool-panel></app-tool-panel>
     <router-view/>
   </div>
 </template>
 
 <script>
+import ToolPanel from "./components/ToolPanel";
+
 export default {
-  name: 'App'
-}
+  components: {
+    AppToolPanel: ToolPanel
+  }
+};
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+:root {
+  --main-color: rgb(12, 45, 66);
+  --secondary-color: rgba(34, 45, 51, 0.95);
+  --third-color: rgb(44, 60, 68);
+}
+
+body {
+  margin: 0;
+  padding: 0;
 }
 </style>
