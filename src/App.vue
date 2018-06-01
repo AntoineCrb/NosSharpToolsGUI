@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <app-tool-panel></app-tool-panel>
+    <app-tool-panel :display="display" @display="display = $event"></app-tool-panel>
     <router-view/>
   </div>
 </template>
@@ -9,6 +9,11 @@
 import ToolPanel from "./components/ToolPanel";
 
 export default {
+  data() {
+    return {
+      display: true
+    };
+  },
   components: {
     AppToolPanel: ToolPanel
   }
@@ -17,13 +22,18 @@ export default {
 
 <style>
 :root {
-  --main-color: rgb(12, 45, 66);
-  --secondary-color: rgba(34, 45, 51, 0.95);
-  --third-color: rgb(44, 60, 68);
+  --main-color: rgba(31, 45, 54, 0.95);
+  --secondary-color: rgb(42, 43, 43);
+  --third-color: rgb(29, 30, 31);
+  --fourth-color: rgb(40, 76, 110);
 }
 
 body {
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 </style>

@@ -1,0 +1,20 @@
+[{
+  "name": "TOOLS",
+  "open": true,
+  "childs": [{
+      "name": "PacketGenerator",
+      "icon": "fas fa-cogs",
+      "router-link": ""
+    },
+    {
+      "name": "PacketGenerator",
+      "icon": "fas fa-cogs",
+      "router-link": ""
+    },
+    {
+      "name": "PacketGenerator",
+      "icon": "fas fa-cogs",
+      "router-link": ""
+    }
+  ]
+}]
