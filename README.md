@@ -21,9 +21,9 @@ npm run build
 
 ## How to add a tool ?
 
-1. Create your vue component in ``src\components\{tool group}`` 
-2. Add details of your tool in ``src\assets\tools.json``
- if your group is already created, simply add an new object in ``childs``
+1. Create your vue component in ``src\components\{tool group}`` .
+2. Add your component on the vue router ``src\router\index.js``, name must be specified.
+3. Add details of your tool in ``src\assets\tools.json``, if your group is already created, simply add an new object in ``childs``
 ``` json
 {
   "name": "",
@@ -38,6 +38,7 @@ npm run build
 }
 ```
 
+The routerLink is the name of the router.
 You can find icons here : https://fontawesome.com/icons?d=gallery&m=free
 ``ex: fas fa-home``
 
@@ -45,5 +46,5 @@ Your tool has been added, congratulations!
 
 ## ScreenShots
 
-<img src="docs/Home.png" height="800px"></img>
-<img src="docs/PacketGenerator.png" height="800px"></img>
+<img src="docs/Home.png" height="400px"></img>
+<img src="docs/PacketGenerator.png" height="400px"></img>
