@@ -29,7 +29,7 @@ export default {
 
 <style>
 :root {
-  --main-color: rgba(31, 45, 54, 0.95);
+  --main-color: rgba(17,41,55, 0.95);
   --secondary-color: rgb(42, 43, 43);
   --third-color: rgb(29, 30, 31);
   --fourth-color: rgb(40, 76, 110);
@@ -54,9 +54,9 @@ body {
 }
 
 .main .title {
-  background-color: rgb(223, 223, 223);
+  background-color: rgb(235, 235, 235);
   padding: 20px 0;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2) inset;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1) inset;
 }
 
 .main .title a {
