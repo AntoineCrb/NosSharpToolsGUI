@@ -81,7 +81,6 @@ export default {
   display: table;
   background-color: rgb(240, 240, 240);
   text-align: center;
-  min-height: 600px;
 
   .tool-panel {
     width: 50%;
@@ -113,6 +112,14 @@ export default {
     display: block;
     font-size: 20px;
     margin-bottom: 20px;
+  }
+
+  @media (max-width: 750px) {
+    .output-panel,
+    .tool-panel {
+      display: block;
+      width: 100%;
+    }
   }
 }
 </style>

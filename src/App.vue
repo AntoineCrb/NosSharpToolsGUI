@@ -5,7 +5,9 @@
       <div class="title">
         <a>- {{$router.currentRoute.name}}</a>
       </div>
-      <router-view/>
+      <div class="component">
+        <router-view/>
+      </div>
     </div>
   </div>
 </template>
@@ -36,15 +38,17 @@ export default {
 body {
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   font-family: "Dosis", "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
   font-weight: 400;
+  overflow: hidden;
+  height: 100%;
 }
 
 .main {
+  height: 100%;
   padding-top: 60px;
   transition: 0.3s;
 }
@@ -58,5 +62,10 @@ body {
 .main .title a {
   padding-left: 50px;
   font-size: 20px;
+}
+
+.main .component {
+  max-height: calc(100vh - 125px);
+  overflow: auto;
 }
 </style>

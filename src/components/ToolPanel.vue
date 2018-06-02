@@ -4,11 +4,11 @@
          <span class="fas fa-bars icon menu transition" @click="$emit('display', !display)"></span>
       </div>
       <div class="left-panel transition">
-         <a class="text transition">{{display ? 'NosSharpToolsGUI' : 'Nos#'}}</a>
+         <router-link tag="a" :to="{name: 'Home'}" class="text transition">{{display ? 'NosSharpToolsGUI' : 'Nos#'}}</router-link>
 
          <div class="tools">
 
-            <div v-for="tool in tools" :key="tool.name" class="main-tool transition" :class="{'tool-open': tool.open}">
+            <div v-for="tool in tools" :key="tool.name" class="main-tool transition" :class="{'tool-open': tool.open}" :style="{'max-height' : tool.open && display ? `${38 + tool.childs.length * 50}px` : '38px'}">
                <div class="main-name" @click="tool.open = ! tool.open"><i class="icon" :class="tool.icon"></i><a class="transition">{{tool.name}}</a> <span class="fas fa-angle-left transition"></span></div>
 
                <router-link tag="a" v-for="t in tool.childs" :key="t.name" :to="{ name: t.routerLink}" class="tool">
@@ -40,7 +40,7 @@ export default {
   .top-panel {
     background-color: var(--main-color);
     height: 50px;
-    width: 100%;
+    width: calc(100% - 70px);
     position: absolute;
     z-index: 10;
     padding-left: 70px;
@@ -56,24 +56,24 @@ export default {
 
   .left-panel {
     background-color: var(--secondary-color);
-    padding-top: 50px;
     height: 100%;
     width: 190px;
     position: absolute;
     left: -130px;
 
     .text {
+      text-decoration: none;
       font-weight: 200;
       font-size: 20px;
       color: #fff;
-      position: relative;
-      top: -35px;
+      position: absolute;
+      top: 15px;
       left: 140px;
       z-index: 20;
     }
 
     .tools {
-      padding-top: 50px;
+      padding-top: 60px;
 
       .main-tool {
         .main-name {
@@ -116,6 +116,7 @@ export default {
 .expanded {
   .top-panel {
     padding-left: 200px;
+    width: calc(100% - 200px);
   }
 
   .left-panel {
@@ -128,7 +129,6 @@ export default {
   .tools {
     .main-tool {
       overflow: hidden;
-      max-height: 38px;
 
       .main-name {
         cursor: pointer;
@@ -186,7 +186,6 @@ export default {
     }
 
     .tool-open {
-      max-height: 400px;
       .main-name {
         span {
           transform: rotate(-90deg);
